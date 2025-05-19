@@ -1,0 +1,12 @@
+[[procedure]]
+name = "sync_deployments"
+config.webhook_enabled = false
+config.schedule_format = "Cron"
+config.schedule = "* */5 * * * *"
+
+[[procedure.config.stage]]
+name = "Sync"
+enabled = true
+executions = [
+  { execution.type = "BatchDeployStackIfChanged", execution.params.pattern = "*", enabled = true }
+]
