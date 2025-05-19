@@ -2,7 +2,7 @@
 name = "sync_deployments"
 config.webhook_enabled = false
 config.schedule_format = "Cron"
-config.schedule = "* */5 * * * *"
+config.schedule = "0 */5 * * * *"
 
 [[procedure.config.stage]]
 name = "Sync"
