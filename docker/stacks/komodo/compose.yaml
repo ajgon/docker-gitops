@@ -9,7 +9,7 @@ services:
     logging:
       driver: local
     volumes:
-      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/komodo/state:/state"
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/komodo/state:/state"
     environment:
       - FERRETDB_HANDLER=sqlite
 
