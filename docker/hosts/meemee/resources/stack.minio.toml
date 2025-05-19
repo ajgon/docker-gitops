@@ -1,0 +1,14 @@
+[[stack]]
+name = "minio"
+[stack.config]
+server = "meemee"
+auto_update = true
+repo = "ajgon/docker-gitops"
+branch = "master"
+reclone = true
+webhook_enabled = false
+run_directory = "docker/stacks/minio"
+environment = """
+MINIO_BROWSER_REDIRECT_URL="https://minio.rzegocki.dev"
+MINIO_SERVER_URL="http://s3.rzegocki.dev:9000"
+"""

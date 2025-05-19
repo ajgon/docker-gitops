@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+services:
+  minio:
+    command: "server /data --console-address :9001"
+    restart: unless-stopped
+    environment:
+    image: "quay.io/minio/minio:RELEASE.2024-12-18T13-15-44Z@sha256:1dce27c494a16bae114774f1cec295493f3613142713130c2d22dd5696be6ad3"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    env_file: ./compose.env
+    volumes:
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/data:/data"
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/secrets:/secrets"
