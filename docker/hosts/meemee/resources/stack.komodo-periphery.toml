@@ -1,0 +1,14 @@
+[[stack]]
+name = "komodo"
+[stack.config]
+server = "meemee"
+project_name = "meemee"
+auto_update = true
+repo = "ajgon/docker-gitops"
+branch = "master"
+reclone = true
+webhook_enabled = false
+run_directory = "docker/stacks/komodo-periphery"
+environment = """
+PERIPHERY_ROOT_DIRECTORY: /volume2/docker/nas
+"""
