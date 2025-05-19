@@ -4,7 +4,7 @@ services:
   minio:
     command: "server /data --console-address :9001"
     restart: unless-stopped
-    image: "quay.io/minio/minio:RELEASE.2024-12-18T13-15-44Z@sha256:1dce27c494a16bae114774f1cec295493f3613142713130c2d22dd5696be6ad3"
+    image: "quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z@sha256:3f97c5651cb6662b880c787a232b6b34fec8d8922e08d6617b25d241a21164bb"
     ports:
       - "9000:9000"
       - "9001:9001"
