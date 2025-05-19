@@ -9,7 +9,7 @@ services:
     logging:
       driver: local
     volumes:
-      - ./state:/state
+      - ./state:/state:z
     environment:
       - FERRETDB_HANDLER=sqlite
 
