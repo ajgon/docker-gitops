@@ -9,9 +9,6 @@ branch = "master"
 reclone = true
 webhook_enabled = false
 run_directory = "docker/stacks/komodo"
-pre_deploy.command = """
-chown 1000:1000 state
-"""
 environment = """
 KOMODO_HOST="http://10.100.10.1:9120"
 KOMODO_DISABLE_USER_REGISTRATION:="false"
