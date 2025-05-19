@@ -11,10 +11,3 @@ executions = [
   { execution.type = "BatchDeployStackIfChanged", execution.params.pattern = "*", enabled = true },
   { execution.type = "RunSync", execution.params.sync = "gitops", enabled = true }
 ]
-
-[[procedure.config.stage]]
-name = "Commit"
-enabled = true
-executions = [
-  { execution.type = "CommitSync", execution.params.sync = "gitops", enabled = true }
-]
