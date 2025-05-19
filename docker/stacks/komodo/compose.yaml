@@ -26,7 +26,7 @@ services:
       - 9120:9120
     env_file: ./compose.env
     environment:
-      KOMODO_DATABASE_ADDRESS: ferretdb
+      KOMODO_DATABASE_ADDRESS: komodo-ferretdb
     volumes:
       - ./repo-cache:/repo-cache
       - ./syncs:/syncs
