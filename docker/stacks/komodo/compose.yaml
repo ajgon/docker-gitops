@@ -19,7 +19,7 @@ services:
       komodo.skip:  # Prevent Komodo from stopping with StopAllContainers
     restart: unless-stopped
     depends_on:
-      - ferretdb
+      - komodo-ferretdb
     logging:
       driver: local
     ports:
