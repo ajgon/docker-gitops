@@ -9,7 +9,7 @@ services:
     logging:
       driver: local
     volumes:
-      - ./state:/state:z
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/komodo/state:/state"
     environment:
       - FERRETDB_HANDLER=sqlite
 
@@ -28,6 +28,10 @@ services:
     environment:
       KOMODO_DATABASE_ADDRESS: komodo-ferretdb
     volumes:
-      - ./repo-cache:/repo-cache
-      - ./syncs:/syncs
-      - ./secrets:/secrets
+      - repo-cache:/repo-cache
+      - syncs:/syncs
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/komodo/secrets:/secrets"
+
+volumes:
+  repo-cache:
+  syncs:

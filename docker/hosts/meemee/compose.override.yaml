@@ -8,4 +8,4 @@ services:
       KOMODO_ENABLE_NEW_USERS: "true"
   komodo-periphery:
     environment:
-      PERIPHERY_ROOT_DIRECTORY: /volume2/docker/nas/docker
+      PERIPHERY_ROOT_DIRECTORY: /volume2/docker/nas
