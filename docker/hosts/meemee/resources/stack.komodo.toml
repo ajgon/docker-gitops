@@ -8,7 +8,7 @@ repo = "ajgon/docker-gitops"
 branch = "master"
 reclone = true
 webhook_enabled = false
-run_directory = "stacks/komodo"
+run_directory = "docker/stacks/komodo"
 pre_deploy.command = """
 chown 1000:1000 state
 """
