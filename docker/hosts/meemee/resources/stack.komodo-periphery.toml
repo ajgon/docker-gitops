@@ -1,5 +1,5 @@
 [[stack]]
-name = "komodo"
+name = "komodo-periphery"
 [stack.config]
 server = "meemee"
 project_name = "meemee"
