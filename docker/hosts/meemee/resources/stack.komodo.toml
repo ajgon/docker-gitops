@@ -1,0 +1,18 @@
+[[stack]]
+name = "komodo"
+[stack.config]
+server = "meemee"
+auto_update = true
+repo = "ajgon/docker-gitops"
+branch = "master"
+reclone = true
+webhook_enabled = false
+run_directory = "docker/stacks/komodo"
+pre_deploy.command = """
+chown 1000:1000 state
+"""
+environment = """
+KOMODO_HOST="http://10.100.10.1:9120"
+KOMODO_DISABLE_USER_REGISTRATION:="false"
+KOMODO_ENABLE_NEW_USERS="true"
+"""
