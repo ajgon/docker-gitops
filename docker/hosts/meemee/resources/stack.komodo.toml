@@ -2,6 +2,7 @@
 name = "komodo"
 [stack.config]
 server = "meemee"
+project_name = "meemee"
 auto_update = true
 repo = "ajgon/docker-gitops"
 branch = "master"
