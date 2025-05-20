@@ -1,0 +1,14 @@
+[[stack]]
+name = "caddy-docker-proxy"
+[stack.config]
+server = "meemee"
+poll_for_updates = true
+auto_update = true
+repo = "ajgon/docker-gitops"
+branch = "master"
+reclone = true
+webhook_enabled = false
+run_directory = "docker/stacks/caddy-docker-proxy"
+environment = """
+CADDY_INGRESS_NETWORKS=meemee_default
+"""
