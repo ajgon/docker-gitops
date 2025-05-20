@@ -20,3 +20,7 @@ services:
       caddy.1_@komodo: "host minio.${ROOT_DOMAIN}"
       caddy.1_handle: "@komodo"
       caddy.1_handle.reverse_proxy: "{{upstreams 9120}}"
+
+networks:
+  caddy:
+    external: true
