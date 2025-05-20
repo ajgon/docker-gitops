@@ -9,3 +9,13 @@ services:
       - "69:1069/udp"
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/tftpd/data:/tftpboot"
+    # security
+    cap_drop:
+      - all
+    security_opt:
+      - no-new-privileges
+    read_only: true
+    cap_add:
+      - CAP_SETGID
+      - CAP_SETUID
+      - CAP_SYS_CHROOT

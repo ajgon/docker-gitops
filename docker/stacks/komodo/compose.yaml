@@ -26,8 +26,6 @@ services:
       - komodo-ferretdb
     logging:
       driver: local
-    ports:
-      - 9120:9120
     env_file: ./compose.env
     networks:
       - default

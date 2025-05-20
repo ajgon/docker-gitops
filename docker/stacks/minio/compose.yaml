@@ -17,9 +17,18 @@ services:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/secrets:/secrets"
     labels:
       caddy: "*.${ROOT_DOMAIN}"
-      caddy.1_@komodo: "host minio.${ROOT_DOMAIN}"
-      caddy.1_handle: "@komodo"
-      caddy.1_handle.reverse_proxy: "{{upstreams 9120}}"
+      caddy.1_@minio: "host minio.${ROOT_DOMAIN}"
+      caddy.1_handle: "@minio"
+      caddy.1_handle.reverse_proxy: "{{upstreams 9001}}"
+      caddy.2_@s3: "host s3.${ROOT_DOMAIN}"
+      caddy.2_handle: "@s3"
+      caddy.2_handle.reverse_proxy: "{{upstreams 9000}}"
+    # security
+    cap_drop:
+      - all
+    security_opt:
+      - no-new-privileges
+    read_only: true
 
 networks:
   caddy:
