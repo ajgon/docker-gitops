@@ -13,7 +13,7 @@ services:
     networks:
       - caddy
     labels:
-      caddy: "*.deedee.casa"
+      caddy: "*.${ROOT_DOMAIN}"
       caddy.log: "out"
       caddy.tls.ca: "https://acme-staging-v02.api.letsencrypt.org/directory"
       caddy.tls.dns: "cloudflare {$CF_API_TOKEN}"

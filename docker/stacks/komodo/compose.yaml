@@ -17,8 +17,8 @@ services:
     image: ghcr.io/moghtech/komodo-core:1.17.5@sha256:6471d9838695f68381c84fe4b8b9c7b303666093450158065688d9417be669eb
     labels:
       komodo.skip:  # Prevent Komodo from stopping with StopAllContainers
-      caddy: "*.deedee.casa"
-      caddy.1_@komodo: "host komodo.deedee.casa"
+      caddy: "*.${ROOT_DOMAIN}"
+      caddy.1_@komodo: "host komodo.${ROOT_DOMAIN}"
       caddy.1_handle: "@komodo"
       caddy.1_handle.reverse_proxy: "{{upstreams 9120}}"
     restart: unless-stopped

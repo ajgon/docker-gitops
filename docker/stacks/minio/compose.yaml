@@ -12,3 +12,8 @@ services:
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/data:/data"
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/secrets:/secrets"
+    labels:
+      caddy: "*.${ROOT_DOMAIN}"
+      caddy.1_@komodo: "host minio.${ROOT_DOMAIN}"
+      caddy.1_handle: "@komodo"
+      caddy.1_handle.reverse_proxy: "{{upstreams 9120}}"

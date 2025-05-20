@@ -9,3 +9,4 @@ services:
   komodo-periphery:
     environment:
       PERIPHERY_ROOT_DIRECTORY: /volume2/docker/nas
+      ROOT_DOMAIN: deedee.casa
