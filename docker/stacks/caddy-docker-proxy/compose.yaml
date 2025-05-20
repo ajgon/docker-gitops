@@ -16,7 +16,7 @@ services:
       caddy: "*.deedee.casa"
       caddy.log: "out"
       caddy.tls.ca: "https://acme-staging-v02.api.letsencrypt.org/directory"
-      caddy.tls.dns: "cloudflare $CF_API_TOKEN"
+      caddy.tls.dns: "cloudflare {$CF_API_TOKEN}"
       caddy.tls.resolvers: "1.1.1.1"
 
 networks:
