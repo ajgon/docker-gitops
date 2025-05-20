@@ -3,12 +3,15 @@ services:
   caddy:
     image: lucaslorentz/caddy-docker-proxy:ci-alpine@sha256:6353a0b632b51ce7ab06d3c10e9a978c9bf0a6645bb6d5b1b417fb48d364fb3d
     restart: unless-stopped
-    # ports:
-    #   - 80:80
-    #   - 443:443
+    ports:
+      - 80:80
+      - 443:443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - caddy-data:/data
+    labels:
+      caddy: nas.rzegocki.dev
+      caddy.reverse_proxy: "http://10.100.10.1:5000"
 
 volumes:
   caddy-data: {}
