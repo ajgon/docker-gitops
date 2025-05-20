@@ -12,6 +12,8 @@ services:
     labels:
       caddy: nas.rzegocki.dev
       caddy.reverse_proxy: "http://10.100.10.1:5000"
+      caddy.tls.dns: "cloudflare {env.CF_API_TOKEN}"
+      caddy.tls.resolvers: "1.1.1.1"
 
 volumes:
   caddy-data: {}
