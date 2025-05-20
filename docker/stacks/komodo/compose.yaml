@@ -18,6 +18,7 @@ services:
     labels:
       komodo.skip:  # Prevent Komodo from stopping with StopAllContainers
       caddy: "komodo.deedee.casa"
+      caddy.tls: "*.deedee.casa"
       caddy.reverse_proxy: "{{upstreams 9120}}"
     restart: unless-stopped
     depends_on:
