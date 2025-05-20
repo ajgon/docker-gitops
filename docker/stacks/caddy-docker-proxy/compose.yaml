@@ -1,7 +1,7 @@
 ---
 services:
   caddy:
-    image: lucaslorentz/caddy-docker-proxy:ci-alpine@sha256:6353a0b632b51ce7ab06d3c10e9a978c9bf0a6645bb6d5b1b417fb48d364fb3d
+    image: homeall/caddy-reverse-proxy-cloudflare:2025.05.20@sha256:490e02448944faf750a4f824f521e9867fcf2b491d857d6ce7dd989190b4f6f5
     restart: unless-stopped
     ports:
       - 80:80
