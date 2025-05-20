@@ -28,7 +28,8 @@ services:
       - komodo-ferretdb
     logging:
       driver: local
-    env_file: ./compose.env
+    env_file:
+      - compose.env
     networks:
       - default
       - caddy
