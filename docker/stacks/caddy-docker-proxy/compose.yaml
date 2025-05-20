@@ -15,9 +15,8 @@ services:
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.log: "out"
-      caddy.tls.ca: "https://acme-staging-v02.api.letsencrypt.org/directory"
       caddy.tls.dns: "cloudflare {$CF_API_TOKEN}"
-      caddy.tls.resolvers: "1.1.1.1"
+      caddy.tls.resolvers: "1.1.1.1 1.0.0.1"
 
 networks:
   caddy:
