@@ -1,6 +1,6 @@
 # komodo cannot manage itself yet
 [[stack]]
-name = "komodo"
+name = "_komodo"
 [stack.config]
 server = "meemee"
 project_name = "meemee"
