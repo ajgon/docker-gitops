@@ -10,6 +10,6 @@ reclone = true
 webhook_enabled = false
 run_directory = "docker/stacks/caddy-docker-proxy"
 environment = """
-CADDY_INGRESS_NETWORKS=meemee_default
-CF_API_TOKEN=[[CF_API_TOKEN]]
+CADDY_INGRESS_NETWORKS="meemee_default"
+CF_API_TOKEN="[[CF_API_TOKEN]]"
 """

@@ -11,7 +11,7 @@ reclone = true
 webhook_enabled = false
 run_directory = "docker/stacks/komodo-periphery"
 environment = """
-PERIPHERY_ROOT_DIRECTORY: /volume2/docker/nas
+PERIPHERY_ROOT_DIRECTORY="/volume2/docker/nas"
 """
 
 # vim:ft=toml
