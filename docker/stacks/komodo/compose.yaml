@@ -29,10 +29,16 @@ services:
     env_file: ./compose.env
     environment:
       KOMODO_DATABASE_ADDRESS: komodo-ferretdb
+    networks:
+      - caddy
     volumes:
       - repo-cache:/repo-cache
       - syncs:/syncs
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/komodo/secrets:/secrets"
+
+networks:
+  caddy:
+    external: true
 
 volumes:
   repo-cache:
