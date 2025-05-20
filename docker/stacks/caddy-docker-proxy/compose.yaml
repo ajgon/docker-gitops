@@ -4,13 +4,15 @@ services:
     image: homeall/caddy-reverse-proxy-cloudflare:2025.05.20@sha256:490e02448944faf750a4f824f521e9867fcf2b491d857d6ce7dd989190b4f6f5
     restart: unless-stopped
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - caddy-data:/data
     labels:
       caddy: "*.deedee.casa"
+      caddy.log: "out"
       caddy.tls.ca: "https://acme-staging-v02.api.letsencrypt.org/directory"
       caddy.tls.dns: "cloudflare $CF_API_TOKEN"
       caddy.tls.resolvers: "1.1.1.1"
