@@ -14,7 +14,6 @@ services:
       - caddy
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/data:/data"
-      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/minio/secrets:/secrets"
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.1_@minio: "host minio.${ROOT_DOMAIN}"
