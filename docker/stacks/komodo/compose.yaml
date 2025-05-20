@@ -18,8 +18,9 @@ services:
     labels:
       komodo.skip:  # Prevent Komodo from stopping with StopAllContainers
       caddy: "*.deedee.casa"
-      caddy.@komodo: "host komodo.deedee.casa"
-      "caddy.handle @komodo.reverse_proxy": "{{upstreams 9120}}"
+      caddy.1_@komodo: "host komodo.deedee.casa"
+      caddy.1_handle: "@komodo"
+      caddy.1_handle.reverse_proxy: "{{upstreams 9120}}"
     restart: unless-stopped
     depends_on:
       - komodo-ferretdb
