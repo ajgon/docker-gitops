@@ -22,8 +22,6 @@ services:
       caddy.1_handle: "@komodo"
       caddy.1_handle.reverse_proxy: "{{upstreams 9120}}"
     restart: unless-stopped
-    ports:
-      - "9120:9120"
     depends_on:
       - komodo-ferretdb
     logging:

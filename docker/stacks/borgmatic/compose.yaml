@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+services:
+  borgmatic:
+    image: "ghcr.io/borgmatic-collective/borgmatic:2.0.6@sha256:26a353844a4ea2bc890c0099c74b4b52f8142c425322def8dc3de0b3d73d8e9a"
+    restart: always
+    environment:
+    env_file:
+      - compose.env
+    volumes:
+      - /volume1:/mnt/volume1:ro
+      - /volume2:/mnt/volume2:ro
+      - /volume3:/mnt/volume3:ro
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/borgmatic/config:/config"
+      - "./config/config.yaml:/etc/borgmatic.d/config.yaml"
+    # security
+    cap_drop:
+      - all
+    security_opt:
+      - no-new-privileges
+    read_only: true
