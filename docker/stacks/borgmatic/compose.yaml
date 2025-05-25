@@ -14,7 +14,7 @@ services:
       - "./config:/etc/borgmatic.d"
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/borgmatic/config:/config"
       - type: bind
-        source: /volumeUSB1/usbshare
+        source: /volumeUSB1
         target: /mnt/target
         bind:
           propagation: rshared
