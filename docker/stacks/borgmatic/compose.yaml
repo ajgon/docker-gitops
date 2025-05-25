@@ -23,3 +23,5 @@ services:
 configs:
   homelab:
     file: ./config/homelab.yaml
+  legacy:
+    file: ./config/legacy.yaml
