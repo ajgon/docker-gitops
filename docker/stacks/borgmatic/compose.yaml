@@ -15,7 +15,6 @@ services:
       - /volume1:/mnt/volume1:ro
       - /volume2:/mnt/volume2:ro
       - /volume3:/mnt/volume3:ro
-      - "./config:/etc/borgmatic.d"
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/borgmatic/config:/config"
       - "/volumeUSB1/usbshare:/mnt/target"
 
