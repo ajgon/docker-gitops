@@ -14,4 +14,3 @@ services:
       - "./config:/etc/borgmatic.d"
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/borgmatic/config:/config"
       - "/volumeUSB1/usbshare:/mnt/target"
-    read_only: true
