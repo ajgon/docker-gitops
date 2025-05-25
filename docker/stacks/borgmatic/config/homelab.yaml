@@ -9,7 +9,7 @@ source_directories:
 repositories:
   - path: /mnt/target/homelab
     label: homelab
-  - path: "ssh://h3n92371@h3n92371.repo.borgbase.com/./repo"
+  - path: "ssh://b9ksog72@b9ksog72.repo.borgbase.com/./repo"
     label: borgbase-homelab-eu
   - path: "ssh://p42wqn8z@p42wqn8z.repo.borgbase.com/./repo"
     label: borgbase-homelab-us
