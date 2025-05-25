@@ -3,6 +3,7 @@
 services:
   komodo-ferretdb:
     image: ghcr.io/ferretdb/ferretdb:1.24.1@sha256:401f0e05eced6bb07088b79db702ee0d898fdfaf28edb99b4cbe1e006733bf69
+    container_name: komodo
     labels:
       komodo.skip:  # Prevent Komodo from stopping with StopAllContainers
     restart: unless-stopped

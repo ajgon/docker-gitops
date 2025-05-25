@@ -49,11 +49,5 @@ checks:
 check_last: 3
 
 # hooks
-on_error:
-  - echo "`date` - Error while creating a backup."
-before_backup:
-  - echo "`date` - Starting backup."
-after_backup:
-  - echo "`date` - Finished backup."
-
-# vim:ft=yaml
+healthchecks:
+  ping_url: "${BORGMATIC_HOMELAB_HC_PING_URL}"

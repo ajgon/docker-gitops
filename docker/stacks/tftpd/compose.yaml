@@ -3,6 +3,7 @@
 services:
   tftpd:
     image: "registry.gitlab.com/kalaksi-containers/tftpd:1.6@sha256:41f614ba418aaba5efe1a6a3a166f66c4414f9dfcbc0b579f9dce91d667f5e0d"
+    container_name: tftpd
     env_file:
       - compose.env
     restart: unless-stopped
