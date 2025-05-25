@@ -1,0 +1,15 @@
+[[stack]]
+name = "borgmatic"
+[stack.config]
+server = "meemee"
+auto_update = true
+repo = "ajgon/docker-gitops"
+branch = "master"
+reclone = true
+webhook_enabled = false
+run_directory = "docker/stacks/borgmatic"
+environment = """
+BORGMATIC_HOMELAB_ENCRYPTION_PASSPHRASE=[[BORGMATIC_HOMELAB_ENCRYPTION_PASSPHRASE]]
+BORGMATIC_LEGACY_ENCRYPTION_PASSPHRASE=[[BORGMATIC_LEGACY_ENCRYPTION_PASSPHRASE]]
+BORGMATIC_NAS_ENCRYPTION_PASSPHRASE=[[BORGMATIC_NAS_ENCRYPTION_PASSPHRASE]]
+"""

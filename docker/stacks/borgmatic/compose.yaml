@@ -7,15 +7,16 @@ services:
     environment:
     env_file:
       - compose.env
+      - .env
     volumes:
       - /volume1:/mnt/volume1:ro
       - /volume2:/mnt/volume2:ro
       - /volume3:/mnt/volume3:ro
+      - "./config:/etc/borgmatic.d"
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/borgmatic/config:/config"
-      - "./config/config.yaml:/etc/borgmatic.d/config.yaml"
-    # security
-    cap_drop:
-      - all
-    security_opt:
-      - no-new-privileges
+      - type: bind
+        source: /volumeUSB1/usbshare
+        target: /mnt/target
+        bind:
+          propagation: shared
     read_only: true

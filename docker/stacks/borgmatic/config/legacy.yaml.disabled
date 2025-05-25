@@ -5,34 +5,30 @@
 
 # location
 source_directories:
-  - /mnt/volume1/docker/containers/volumes
-  - /mnt/volume2/media/music/_Mix
-  - /mnt/volume3/materials/books
-  - /mnt/volume3/materials/magazines
-  - /mnt/volume3/private
+  - /mnt/volume3/legacy/homelab
 repositories:
-  - path: "ssh://isx655m2@isx655m2.repo.borgbase.com/./repo"
-    label: private-eu
-  - path: "ssh://ls82d6e1@ls82d6e1.repo.borgbase.com/./repo"
-    label: private-us
+  - path: /mnt/target/legacy
+    label: local-legacy
+  - path: "ssh://eqpp3371@eqpp3371.repo.borgbase.com/./repo"
+    label: borgbase-legacy
 
 exclude_caches: true
 exclude_if_present:
   - .nobackup
 
 # directories
-user_runtime_directory: /config/runtime
-user_state_directory: /config/state
-temporary_directory: /config/tmp
-borg_base_directory: /config/borg
+user_runtime_directory: /config/legacy/runtime
+user_state_directory: /config/legacy/state
+temporary_directory: /config/legacy/tmp
+borg_base_directory: /config/legacy/borg
 
 # storage
-encryption_passphrase: "${BORGMATIC_ENCRYPTION_PASSPHRASE}"
+encryption_passphrase: "${BORGMATIC_LEGACY_ENCRYPTION_PASSPHRASE}"
 retries: 5
 compression: auto,zstd
-ssh_command: ssh -i /config/ssh.key -o StrictHostKeyChecking=no
+ssh_command: ssh -i /config/legacy/ssh.key -o StrictHostKeyChecking=no
 lock_wait: 5
-archive_name_format: 'nas-{now:%Y-%m-%d-%H%M%S}'
+archive_name_format: 'legacy-{now:%Y-%m-%d-%H%M%S}'
 
 # retention
 keep_daily: 7
@@ -55,3 +51,5 @@ before_backup:
   - echo "`date` - Starting backup."
 after_backup:
   - echo "`date` - Finished backup."
+
+# vim:ft=yaml
