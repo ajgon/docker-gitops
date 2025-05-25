@@ -9,8 +9,10 @@ services:
       - compose.env
       - .env
     configs:
-      - source: homelab
-        target: /etc/borgmatic.d/homelab.yaml
+      # - source: homelab
+      #   target: /etc/borgmatic.d/homelab.yaml
+      - source: legacy
+        target: /etc/borgmatic.d/legacy.yaml
     volumes:
       - /volume1:/mnt/volume1:ro
       - /volume2:/mnt/volume2:ro
