@@ -11,9 +11,9 @@ source_directories:
 repositories:
   - path: /mnt/target/nas
     label: nas
-  - path: "ssh://b03hw2wj@b03hw2wj.repo.borgbase.com/./repo"
+  - path: "${BORGMATIC_NAS_REPO_BORGBASE_EU}"
     label: borgbase-nas-eu
-  - path: "ssh://xx6e9qx6@xx6e9qx6.repo.borgbase.com/./repo"
+  - path: "${BORGMATIC_NAS_REPO_BORGBASE_US}"
     label: borgbase-nas-us
 
 exclude_caches: true

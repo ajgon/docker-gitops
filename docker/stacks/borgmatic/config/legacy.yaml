@@ -9,7 +9,7 @@ source_directories:
 repositories:
   - path: /mnt/target/legacy
     label: local-legacy
-  - path: "ssh://eqpp3371@eqpp3371.repo.borgbase.com/./repo"
+  - path: "${BORGMATIC_LEGACY_REPO_BORGBASE_EU}"
     label: borgbase-legacy
 
 exclude_caches: true
