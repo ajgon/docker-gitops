@@ -6,6 +6,8 @@ services:
     container_name: minio
     command: "server /data --console-address :9001"
     restart: unless-stopped
+    ports:
+      - "9000:9000"  # nix cache connects directly
     env_file:
       - compose.env
       - .env
