@@ -32,7 +32,9 @@ services:
       - "-cache-repository"
       - "${TALOS_FACTORY_INTERNAL_REGISTRY_HOST}/talos/cache"
     volumes:
-      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/talos-factory/config:/config"
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/talos-factory/config:/config:ro"
+    tmpfs:
+      - /tmp::mode=755,uid=1000,gid=1000
     networks:
       - caddy
     labels:
