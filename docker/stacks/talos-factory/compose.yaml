@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     command:
       - "-external-url"
-      - "https://factory.${config.mySystem.rootDomain}"
+      - "https://factory.${ROOT_DOMAIN}"
       - "-cache-signing-key-path"
       - "/config/cache-signing-key.key"
       - "-secureboot"
