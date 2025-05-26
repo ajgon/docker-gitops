@@ -9,8 +9,8 @@ services:
     command:
       - "-address=0.0.0.0:8080"
     volumes:
-      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/matchbox/config:/etc/matchbox:Z"
-      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/matchbox/data:/var/lib/matchbox:Z"
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/matchbox/config:/etc/matchbox:ro"
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/matchbox/data:/var/lib/matchbox:ro"
     networks:
       - caddy
     labels:
