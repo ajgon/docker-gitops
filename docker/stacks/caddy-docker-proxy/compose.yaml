@@ -5,7 +5,7 @@ services:
     image: homeall/caddy-reverse-proxy-cloudflare:2025.05.20@sha256:490e02448944faf750a4f824f521e9867fcf2b491d857d6ce7dd989190b4f6f5
     container_name: caddy-docker-proxy
     restart: unless-stopped
-    # user: "1000:0"
+    user: "1000:0"
     ports:
       - "80:80"
       - "443:443"
@@ -23,16 +23,16 @@ services:
       caddy.tls.dns: "cloudflare $CF_API_TOKEN"
       caddy.tls.resolvers: "1.1.1.1 1.0.0.1"
     # security
-    # cap_drop:
-    #   - all
-    # cap_add:
-    #   - CAP_SETGID
-    #   - CAP_SETUID
-    #   - CAP_SYS_CHROOT
-    #   - CAP_NET_BIND_SERVICE
-    # security_opt:
-    #   - no-new-privileges
-    # read_only: true
+    cap_drop:
+      - all
+    cap_add:
+      - CAP_SETGID
+      - CAP_SETUID
+      - CAP_SYS_CHROOT
+      - CAP_NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges
+    read_only: true
 
 networks:
   caddy:
