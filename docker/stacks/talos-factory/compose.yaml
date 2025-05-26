@@ -6,6 +6,8 @@ services:
     container_name: talos-factory
     restart: unless-stopped
     user: 1000:1000
+    env_file:
+      - compose.env
     command:
       - "-external-url"
       - "https://factory.${ROOT_DOMAIN}"
@@ -30,7 +32,7 @@ services:
       - "-cache-repository"
       - "${TALOS_FACTORY_INTERNAL_REGISTRY_HOST}/talos/cache"
     volumes:
-      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/talos-factory/config:/config:ro"
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/talos-factory/config:/config"
     networks:
       - caddy
     labels:
