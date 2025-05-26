@@ -22,6 +22,12 @@ services:
       caddy.log: "out"
       caddy.tls.dns: "cloudflare $CF_API_TOKEN"
       caddy.tls.resolvers: "1.1.1.1 1.0.0.1"
+    # security
+    cap_drop:
+      - all
+    security_opt:
+      - no-new-privileges
+    read_only: true
 
 networks:
   caddy:
