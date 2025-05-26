@@ -12,13 +12,13 @@ services:
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/tftpd/data:/tftpboot"
     # security
-    cap_drop:
-      - all
+    # cap_drop:
+    #   - all
     cap_add:
-      - CAP_SETGID
-      - CAP_SETUID
-      - CAP_SYS_CHROOT
+    #   - CAP_SETGID
+    #   - CAP_SETUID
+    #   - CAP_SYS_CHROOT
       - CAP_NET_BIND_SERVICE
-    security_opt:
-      - no-new-privileges
-    read_only: true
+    # security_opt:
+    #   - no-new-privileges
+    # read_only: true
