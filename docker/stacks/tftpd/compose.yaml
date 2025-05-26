@@ -9,8 +9,6 @@ services:
       - compose.env
     restart: unless-stopped
     network_mode: host
-    ports:
-      - "69:69/udp"
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/tftpd/data:/tftpboot"
     # security
