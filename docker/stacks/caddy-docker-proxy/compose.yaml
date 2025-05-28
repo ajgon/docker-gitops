@@ -28,8 +28,8 @@ services:
       caddy.2_@obsidian: "host obsidian.${ROOT_DOMAIN}"
       caddy.2_handle: "@obsidian"
       caddy.2_handle.reverse_proxy: "10.100.10.1:9000"
-      caddy.2_rewrite: "/assets/obsidian{uri}"
-      caddy.2_redir: "/ /index.html"
+      caddy.2_handle.rewrite: "/assets/obsidian{uri}"
+      caddy.2_handle.redir: "/ /index.html"
     # security
     cap_drop:
       - all
