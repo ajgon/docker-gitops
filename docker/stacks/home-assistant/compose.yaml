@@ -20,7 +20,7 @@ services:
       - caddy
     labels:
       caddy: "*.${ROOT_DOMAIN}"
-      caddy.1_@home: "host home.${ROOT_DOMAIN}"
+      caddy.1_@home: "host hass.${ROOT_DOMAIN}"
       caddy.1_handle: "@home"
       caddy.1_handle.reverse_proxy: "{{upstreams 8123}}"
     # security
