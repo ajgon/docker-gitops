@@ -9,7 +9,8 @@ services:
     restart: unless-stopped
     logging:
       driver: local
-    env_file: ./compose.env
+    env_file:
+      - ./compose.env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc:/proc

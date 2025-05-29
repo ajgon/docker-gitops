@@ -1,0 +1,35 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+services:
+  home-assistant:
+    image: ghcr.io/home-operations/home-assistant:2025.5.3@sha256:a480637f5064050f27e053a756ef2083b4346656e7c15713b574cfb1a9bbf3af
+    container_name: home-assistant
+    user: "1000:1000"
+    restart: unless-stopped
+    env_file:
+      - ./compose.env
+    post_start:
+      - command: touch /config/.venv/.nobackup
+    volumes:
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/home-assistant/config:/config"
+    tmpfs:
+      - /config/logs:mode=755,uid=1000,gid=1000
+      - /config/tts:mode=755,uid=1000,gid=1000
+      - /tmp:mode=755,uid=1000,gid=1000
+    networks:
+      - caddy
+    labels:
+      caddy: "*.${ROOT_DOMAIN}"
+      caddy.1_@home: "host home.${ROOT_DOMAIN}"
+      caddy.1_handle: "@home"
+      caddy.1_handle.reverse_proxy: "{{upstreams 8123}}"
+    # security
+    cap_drop:
+      - all
+    security_opt:
+      - no-new-privileges
+    read_only: true
+
+networks:
+  caddy:
+    external: true
