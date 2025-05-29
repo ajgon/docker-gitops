@@ -14,6 +14,7 @@ services:
       - "/run/udev:/run/udev:ro"
     networks:
       - caddy
+      - mosquitto
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.1_@z2m-bottom: "host z2m-bottom.${ROOT_DOMAIN}"
@@ -39,6 +40,7 @@ services:
       - "/run/udev:/run/udev:ro"
     networks:
       - caddy
+      - mosquitto
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.1_@z2m-top: "host z2m-top.${ROOT_DOMAIN}"
@@ -53,4 +55,6 @@ services:
 
 networks:
   caddy:
+    external: true
+  mosquitto:
     external: true

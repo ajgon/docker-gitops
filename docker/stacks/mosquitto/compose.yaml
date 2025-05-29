@@ -11,6 +11,8 @@ services:
     configs:
       - source: mosquitto
         target: /mosquitto/config/mosquitto.conf
+    networks:
+      - mosquitto
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/mosquitto/data:/data"
     # security
@@ -23,3 +25,7 @@ services:
 configs:
   mosquitto:
     file: ./config/mosquitto.conf
+
+networks:
+  mosquitto:
+    external: true
