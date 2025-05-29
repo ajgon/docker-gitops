@@ -26,6 +26,10 @@ services:
     # security
     cap_drop:
       - all
+    cap_add:
+      - CAP_SETGID
+      - CAP_SETUID
+      - CAP_SYS_CHROOT
     security_opt:
       - no-new-privileges
     read_only: true
