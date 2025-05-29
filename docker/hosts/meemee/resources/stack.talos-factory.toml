@@ -11,4 +11,3 @@ run_directory = "docker/stacks/talos-factory"
 environment = """
 TALOS_FACTORY_INTERNAL_REGISTRY_HOST=registry:5000
 """
-
