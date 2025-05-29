@@ -9,7 +9,8 @@ services:
     env_file:
       - ./compose.env
     post_start:
-      - command: touch /config/.venv/.nobackup
+      - command: |
+          sh -c 'mkdir -p /config/.venv && touch /config/.venv/.nobackup'
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/home-assistant/config:/config"
     tmpfs:
