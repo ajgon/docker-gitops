@@ -76,5 +76,5 @@ networks:
       parent: ovs_eth1
     ipam:
       config:
-        - subnet: 10.210.1.0/24
+        - subnet: 10.210.0.0/16
           gateway: 10.210.1.1
