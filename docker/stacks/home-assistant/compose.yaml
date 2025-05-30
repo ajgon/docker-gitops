@@ -35,6 +35,33 @@ services:
     security_opt:
       - no-new-privileges
     read_only: true
+  code-server:
+    image: ghcr.io/coder/code-server:4.100.2@sha256:0c31654f1125c3a685a42ed1f2946573f5ebaaf016c5bc0640c72f9f571267e0
+    container_name: code-server
+    user: "1000:1000"
+    restart: unless-stopped
+    command:
+      - --auth
+      - none
+      - --user-data-dir
+      - /config/.vscode
+      - --port
+      - "12321"
+      - "/config"
+    volumes:
+      - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/home-assistant/config:/config"
+    tmpfs:
+      - /home/coder:mode=755,uid=1000,gid=1000
+    networks:
+      - caddy
+    labels:
+      caddy: "*.${ROOT_DOMAIN}"
+      caddy.1_@hass: "host hass.${ROOT_DOMAIN}"
+      caddy.1_handle: "@hass"
+      caddy.1_handle.reverse_proxy: "{{upstreams 12321}}"
+    # security
+    cap_drop:
+      - all
 
 networks:
   caddy:
