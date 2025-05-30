@@ -53,7 +53,9 @@ services:
     tmpfs:
       - /home/coder:mode=755,uid=1000,gid=1000
     networks:
-      - caddy
+      caddy:
+      iot:
+        ipv4_address: 10.210.1.10
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.1_@hass: "host hass.${ROOT_DOMAIN}"
@@ -68,3 +70,11 @@ networks:
     external: true
   mosquitto:
     external: true
+  iot:
+    driver: macvlan
+    driver_opts:
+      parent: ovs_eth1
+    ipam:
+      config:
+        - subnet: 10.210.1.0/24
+          gateway: 10.210.1.1
