@@ -18,8 +18,10 @@ services:
       - /config/tts:mode=755,uid=1000,gid=1000
       - /tmp:mode=755,uid=1000,gid=1000
     networks:
-      - caddy
-      - mosquitto
+      caddy:
+      mosquitto:
+      iot:
+        ipv4_address: 10.210.1.10
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.1_@home: "host home.${ROOT_DOMAIN}"
@@ -53,9 +55,7 @@ services:
     tmpfs:
       - /home/coder:mode=755,uid=1000,gid=1000
     networks:
-      caddy:
-      iot:
-        ipv4_address: 10.210.1.10
+      - caddy
     labels:
       caddy: "*.${ROOT_DOMAIN}"
       caddy.1_@hass: "host hass.${ROOT_DOMAIN}"
