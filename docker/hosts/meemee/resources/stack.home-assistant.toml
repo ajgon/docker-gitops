@@ -8,4 +8,6 @@ branch = "master"
 reclone = true
 webhook_enabled = false
 run_directory = "docker/stacks/home-assistant"
-
+environment = """
+CODE_SERVER_PASSWORD=[[CODE_SERVER_PASSWORD]]
+"""

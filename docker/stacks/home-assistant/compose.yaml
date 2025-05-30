@@ -7,7 +7,7 @@ services:
     user: "1000:1000"
     restart: unless-stopped
     env_file:
-      - ./compose.env
+      - ./home-assistant.env
     post_start:
       - command: |
           sh -c 'mkdir -p /config/.venv && touch /config/.venv/.nobackup'
@@ -40,9 +40,9 @@ services:
     container_name: code-server
     user: "1000:1000"
     restart: unless-stopped
+    env_file:
+      - ./code-server.env
     command:
-      - --auth
-      - none
       - --user-data-dir
       - /config/.vscode
       - --port
