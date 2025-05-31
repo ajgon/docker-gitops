@@ -8,6 +8,7 @@ services:
     restart: unless-stopped
     ports:
       - 8095:8095
+      - 8097:8097
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/music-assistant/data:/data"
     tmpfs:
