@@ -7,7 +7,7 @@ services:
     user: "1000:1000"
     restart: unless-stopped
     ports:
-      - 8097:8097
+      - "${IOT_NAS_IP}:8097:8097"
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/music-assistant/data:/data"
     tmpfs:

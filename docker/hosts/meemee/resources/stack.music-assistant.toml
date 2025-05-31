@@ -8,4 +8,6 @@ branch = "master"
 reclone = true
 webhook_enabled = false
 run_directory = "docker/stacks/music-assistant"
-
+environment = """
+IOT_NAS_IP=[[IOT_NAS_IP]]
+"""
