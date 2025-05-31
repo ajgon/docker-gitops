@@ -6,6 +6,8 @@ services:
     container_name: music-assistant
     user: "1000:1000"
     restart: unless-stopped
+    ports:
+      - 8095:8095
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/music-assistant/data:/data"
     tmpfs:
