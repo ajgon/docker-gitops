@@ -1,0 +1,11 @@
+[[stack]]
+name = "music-assistant"
+[stack.config]
+server = "meemee"
+auto_update = true
+repo = "ajgon/docker-gitops"
+branch = "master"
+reclone = true
+webhook_enabled = false
+run_directory = "docker/stacks/music-assistant"
+
