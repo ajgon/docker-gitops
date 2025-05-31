@@ -7,7 +7,6 @@ services:
     user: "1000:1000"
     restart: unless-stopped
     ports:
-      - 8095:8095
       - 8097:8097
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/music-assistant/data:/data"
@@ -15,6 +14,11 @@ services:
       - /tmp:mode=755,uid=1000,gid=1000
     networks:
       - caddy
+    labels:
+      caddy: "*.${ROOT_DOMAIN}"
+      caddy.1_@music: "host music.${ROOT_DOMAIN}"
+      caddy.1_handle: "@music"
+      caddy.1_handle.reverse_proxy: "{{upstreams 8095}}"
     # security
     cap_drop:
       - all
