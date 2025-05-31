@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     volumes:
       - "${PERIPHERY_ROOT_DIRECTORY:-/etc/komodo}/volumes/music-assistant/data:/data"
+    tmpfs:
+      - /tmp:mode=755,uid=1000,gid=1000
     networks:
       - caddy
     # security
